@@ -42,7 +42,7 @@ foreach ($car as $x => $y) {    // $x anger "nyckeln" (brand, model eller year) 
     echo "$x: $y <br>";
   }
 
-// lite hints inför inlämning 1
+// LITE HINTS INFÖR INLÄMNING 1
 // Skriv först ut en tabell-starttag
 echo "<table>";
 // skriv ut en tabellrad
@@ -52,7 +52,7 @@ foreach ($car as $x => $y) {    // $x anger "nyckeln" (brand, model eller year) 
   echo "<td>$x</td>";
 }
 //avsluta tabellraden och börja en ny
-echo "</tr>";
+echo "</tr><tr>";
 foreach ($car as $x => $y) {    // $x anger "nyckeln" (brand, model eller year) och $y anger respektive värde
   echo "<td>$y</td>";
 }
