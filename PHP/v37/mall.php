@@ -10,7 +10,7 @@ $realValue = "Kalle Anka";
 $finalText = str_replace("***USER***", $realValue, $template);
 
 // Skriv ut den slutgiltiga texten
-echo $finalTxet;
+echo $finalText;
 
 // DEL 2: ETT LITE MER KOMPLEXT EXEMPEL DÄR EN TABELL FYLLS UT MED UTFYLLNADSTEXT
 // Mallen för en tabellrad med utfyllnadstext
