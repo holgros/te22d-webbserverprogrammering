@@ -18,7 +18,7 @@ con.connect(function (err) {
     console.log(result); // skriv ut innehållet i databasen till kommandotolken
     // hantera enstaka objekt och attribut, t.ex.:
     console.log(result[0]); // skriver ut första raden (objektet) i tabellen
-    console.log(result[0].fornamn); // skriver ut attributet "fornamn" (förutsatt att detta finns - ändra om din tabell ser annorlunda ut)
+    console.log(result[0].firstname); // skriver ut attributet "fornamn" (förutsatt att detta finns - ändra om din tabell ser annorlunda ut)
   });
   // stäng uppkopplingen, kan vara önskvärt ifall man inte vill tvångsavsluta programmet i konsolen
   con.end(function (err) {
