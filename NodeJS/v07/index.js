@@ -22,20 +22,24 @@ app.put("/users/:id", function (req, res) {
   // kolla först att all data som ska finnas finns i request-body
   if (!(req.body && req.body.firstname && req.body.lastname)) {
     // om data saknas i body
-    res.send(400);
+    res.sendStatus(400);
     return;
   }
   let sql = `UPDATE users 
-        SET firstname = '${req.body.firstname}', lastname = '${req.body.lastname}'
-        WHERE id = ${req.params.id}`;
+        SET firstname = ?, lastname = ?
+        WHERE id = ?`; // De tre frågetecknen ersätts i query-anropet nedan av värden från req-objektet med data från klienten
 
-  con.query(sql, function (err, result, fields) {
-    if (err) {
-      throw err;
-      //kod här för felhantering, skicka felmeddelande osv.
-    } else {
-      // meddela klienten att request har processats OK
-      res.send(200);
+  con.query(
+    sql,
+    [req.body.firstname, req.body.lastname, req.params.id],
+    function (err, result) {
+      if (err) {
+        throw err;
+        //kod här för felhantering, skicka felmeddelande osv.
+      } else {
+        // meddela klienten att request har processats OK
+        res.sendStatus(200);
+      }
     }
-  });
+  );
 });
