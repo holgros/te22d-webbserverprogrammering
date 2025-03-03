@@ -33,7 +33,7 @@ app.post("/users", async function (req, res) {
   }
   const salt = await bcrypt.genSalt(10); // genererar ett salt till hashning
   const hashedPassword = await bcrypt.hash(req.body.passwd, salt); //hashar lösenordet
-  // OBS: näst sista raden i SQL-satsen står det hash(req.body.passwd) istället för req.body.passwd
+  // OBS: näst sista raden i SQL-satsen står det "hashedPassword"
   // Det hashade lösenordet kan ha över 50 tecken, så använd t.ex. typen VARCHAR(100) i databasen, annars riskerar det hashade lösenordet att trunkeras (klippas av i slutet)
   let sql = `INSERT INTO users (firstname, lastname, userId, passwd)
     VALUES ('${req.body.firstname}', 
